@@ -5,5 +5,8 @@
   <%= f.label :songs %>
   <%= f.select :songs, options_from_collection_for_select(@user.songs, :id, :title), {}, { multiple: true } %>
 
+ <%= f.label :users %>
+  <%= f.select :users, options_from_collection_for_select(@users, :first_name), {}, { multiple: true } %>
+
   <%= f.submit "Create" %>
 <% end %>

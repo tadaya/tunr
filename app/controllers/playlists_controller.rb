@@ -3,6 +3,7 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = Playlist.new
+    @users = Users.all
   end
 
   def create
@@ -10,6 +11,7 @@ class PlaylistsController < ApplicationController
     @playlist.purchases << @user.purchases.where( 
       song_id: params[:playlist][:songs]
     )
+    @connection = @connection.create(playlist: @playlist, user: params[:users][1])
     redirect_to playlist_path(@playlist)
   end
 

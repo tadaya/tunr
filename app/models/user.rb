@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :purchases
   has_many :songs, through: :purchases
   has_many :playlists
+  has_many :playlists, through :connections
+  has_many :connections
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
